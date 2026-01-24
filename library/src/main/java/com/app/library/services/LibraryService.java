@@ -101,6 +101,72 @@ public class LibraryService {
         BorrowingRecord record = borrowingRecords.get(recordId);
         // Increase the available copies of the book
         Book book = books.get(record.getBookId());
-        book.setAvailableCopies(book.getAvailableCopies() +1 );
+        book.setAvailableCopies(book.getAvailableCopies() + 1);
+    }
+
+    public Collection<Book> getBooksByGenre(String genre) {
+        Collection<Book> allBooks = (Collection<Book>) (books.values());
+        return allBooks.stream()
+                .filter(book -> (book.getGenre()).toLowerCase().contains(genre.toLowerCase()))
+                .collect(Collectors.toList());
+    }
+
+    public Collection<Book> getBooksByAuthorAndGenre(String author, String genre) {
+        Collection<Book> allBooks = (Collection<Book>) (books.values());
+        return allBooks.stream()
+                .filter(book -> book.getAuthor().equalsIgnoreCase(author)) // Filter by author
+                .filter(book -> genre == null || book.getGenre().toLowerCase().contains(genre.toLowerCase())) // Optional
+                                                                                                              // filter
+                                                                                                              // by
+                .collect(Collectors.toList());
+    }
+
+    public Collection<Book> getBooksDueOnDate(LocalDate dueDate) {
+        Collection<BorrowingRecord> allRecords = (Collection<BorrowingRecord>) (borrowingRecords.values());
+        ArrayList<Book> dueBooks = new ArrayList<Book>();
+        Collection<BorrowingRecord> tempRecords = allRecords.stream()
+                .filter(record -> record.getDueDate().equals(dueDate)) // Filter by dueDate
+                .collect(Collectors.toList());
+        // For each filtered record, find the corresponding book and add it to the
+        // dueBooks list
+        for (BorrowingRecord record : tempRecords) {
+            Book book = books.get(record.getBookId());
+            if (book != null) {
+                dueBooks.add(book); // Add the book to the dueBooks list
+            }
+        }
+        return dueBooks;
+    }
+
+    public LocalDate checkAvailability(Long bookId) {
+        Collection<BorrowingRecord> allRecords = (Collection<BorrowingRecord>) (borrowingRecords.values());
+        Book bookToCheck = books.get(bookId);
+        if (bookToCheck == null) {
+            return null;
+        } else {
+            if (bookToCheck.getAvailableCopies() >= 1) {
+                return LocalDate.now();
+            } else {
+                List<BorrowingRecord> sortedRecords = allRecords.stream()
+                        .filter(record -> record.getBookId() == bookId) // Filter by bookId
+                        .sorted((b1, b2) -> b1.getDueDate().compareTo(b2.getDueDate())) // Sort by dueDate (soonest to
+                                                                                        // latest)
+                        .collect(Collectors.toList());
+                return sortedRecords.get(0).getDueDate();
+            }
+        }
+    }
+
+    public Collection<Book> getBooks(String author, String genre) {
+        Collection<Book> allBooks = (Collection<Book>) books.values();
+
+        return allBooks.stream()
+                .filter(book -> author == null ||
+                        (book.getAuthor() != null &&
+                                book.getAuthor().equalsIgnoreCase(author)))
+                .filter(book -> genre == null ||
+                        (book.getGenre() != null &&
+                                book.getGenre().toLowerCase().contains(genre.toLowerCase())))
+                .collect(Collectors.toList());
     }
 }
