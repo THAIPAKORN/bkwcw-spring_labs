@@ -1,13 +1,6 @@
-<<<<<<< HEAD
-/workspaces/Java/bkwcw-spring_labs/library/src/main/java/com/app/library/LibraryApplication.java
-=======
->>>>>>> 3b9cffcab600dbf0067fec40a5539819c408a8e0
 /workspaces/Java/bkwcw-spring_labs/library/src/main/java/com/app/library/controllers/LibraryController.java
 /workspaces/Java/bkwcw-spring_labs/library/src/main/java/com/app/library/models/Book.java
 /workspaces/Java/bkwcw-spring_labs/library/src/main/java/com/app/library/models/BorrowingRecord.java
 /workspaces/Java/bkwcw-spring_labs/library/src/main/java/com/app/library/models/Member.java
-<<<<<<< HEAD
-=======
 /workspaces/Java/bkwcw-spring_labs/library/src/main/java/com/app/library/services/LibraryApplication.java
->>>>>>> 3b9cffcab600dbf0067fec40a5539819c408a8e0
 /workspaces/Java/bkwcw-spring_labs/library/src/main/java/com/app/library/services/LibraryService.java

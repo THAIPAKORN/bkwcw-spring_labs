@@ -1,6 +1,0 @@
-com/app/library/model/Book.class
-com/app/library/service/LibraryService.class
-com/app/library/controller/LibraryController.class
-com/app/library/model/Member.class
-com/app/library/LibraryApplication.class
-com/app/library/model/BorrowingRecord.class
