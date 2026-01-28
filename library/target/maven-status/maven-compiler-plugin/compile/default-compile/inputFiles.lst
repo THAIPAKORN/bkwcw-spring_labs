@@ -1,6 +1,6 @@
-/workspaces/lab4/bkwcw-spring_labs/library/src/main/java/com/app/library/LibraryApplication.java
-/workspaces/lab4/bkwcw-spring_labs/library/src/main/java/com/app/library/controllers/LibraryController.java
-/workspaces/lab4/bkwcw-spring_labs/library/src/main/java/com/app/library/models/Book.java
-/workspaces/lab4/bkwcw-spring_labs/library/src/main/java/com/app/library/models/BorrowingRecord.java
-/workspaces/lab4/bkwcw-spring_labs/library/src/main/java/com/app/library/models/Member.java
-/workspaces/lab4/bkwcw-spring_labs/library/src/main/java/com/app/library/services/LibraryService.java
+/workspaces/Java/bkwcw-spring_labs/library/src/main/java/com/app/library/LibraryApplication.java
+/workspaces/Java/bkwcw-spring_labs/library/src/main/java/com/app/library/controllers/LibraryController.java
+/workspaces/Java/bkwcw-spring_labs/library/src/main/java/com/app/library/models/Book.java
+/workspaces/Java/bkwcw-spring_labs/library/src/main/java/com/app/library/models/BorrowingRecord.java
+/workspaces/Java/bkwcw-spring_labs/library/src/main/java/com/app/library/models/Member.java
+/workspaces/Java/bkwcw-spring_labs/library/src/main/java/com/app/library/services/LibraryService.java
